@@ -1,8 +1,8 @@
 package database
 
 import (
+	"go-chat/internal/models"
 	"os"
-	"os/user"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -16,7 +16,7 @@ func NewDb() *gorm.DB {
 		panic("Database connection failed")
 	}
 
-	db.AutoMigrate(&user.User{})
+	db.AutoMigrate(&models.User{})
 
 	return db
 }
